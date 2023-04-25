@@ -1,0 +1,103 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  	background: #393e46; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.title{
+  font-size: 3vh;
+  font-family: Sans-Serif;
+  color: #fff;
+  padding-bottom: 10px;
+}
+.title span{
+  font-size: 2.6vh;
+  color: gold;
+}
+#cards-container{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-gap: 2vw;
+}
+.child-div{
+  position: relative;
+  transition: all .4s linear; 
+  transform-style: preserve-3d;
+}
+.child-div,
+.front,
+.back{
+  height: 180px;
+  width: 180px;
+  border-radius: 10px;
+}
+.front,
+.back{
+  position: absolute;
+  backface-visibility: hidden;
+}
+.front{
+  background-size: contain;
+  background-color: #FFEA00;
+}
+.back{
+  transform: rotateY(180deg);
+  background-size: cover;
+  transition: transform .7s linear;
+}
+.selected-card{
+  transform: rotateY(180deg);
+}
+.match .front{
+  background: #000;
+}
+.restart{
+  height: 5vh;
+  width: 95%;
+  font-size: 3.3vh;
+  font-weight: 800;
+  margin-top: 3vh;
+  color: #393e46;
+  letter-spacing: 2vw;
+  background-color: gold;
+  border: 0;
+  border-radius: 5px;
+}
+.load-icon {
+  position: absolute;
+  left: 44%;
+  top: 45%;
+  width: 5vh;
+  animation: rotate .5s infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media only screen and (max-width : 768px){
+  .child-div,
+  .front,
+  .back{
+    height: 65px;
+    width: 65px;
+    border-radius: 5px;
+  }
+  .restart{
+    height: 40px;
+    width: 95%;
+    letter-spacing: 4px;
+    border-radius: 5px;
+  }
+}
